@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Movie</title>
+    <link rel="stylesheet" href="/css/movie.css">
+</head>
+
+<body>
+
+<section class="movie-hero">
+
+    <!-- BACKGROUND -->
+    <div class="hero-backdrop"
+         th:style="'background-image:url(/images/' + ${movie.poster} + ')'">
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="movie-wrapper">
+
+        <!-- LEFT -->
+        <div class="movie-left">
+            <div class="poster-box">
+                <img th:src="@{'/images/' + ${movie.poster}}" alt="">
+            </div>
+        </div>
+
+        <!-- CENTER -->
+        <div class="movie-center">
+
+            <h1 class="movie-title"
+                th:text="${movie.title} ?: 'No Title'"></h1>
+
+            <div class="movie-meta">
+                <span th:text="${movie.year} ?: '----'"></span>
+                <span>•</span>
+                <span th:text="${movie.genre} ?: 'Unknown Genre'"></span>
+                <span>•</span>
+                <span>★ <span th:text="${movie.rate} ?: '0.0'"></span></span>
+            </div>
+
+            <p class="movie-discription"
+               th:text="${movie.discreption} ?: 'No description available.'"></p>
+
+            <!-- TAGS (static for now) -->
+            <div class="movie-tags">
+                <span>Drama</span>
+                <span>Adventure</span>
+                <span>Sci-Fi</span>
+                <span>Fantasy</span>
+            </div>
+
+            <!-- REVIEWS -->
+            <div class="review-section">
+
+                <h2>Popular Reviews</h2>
+
+                <div class="review-card">
+                    <div class="review-user">🍿 Nour</div>
+                    <div class="review-text">
+                        This movie was visually insane.
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-user">🎬 Alex</div>
+                    <div class="review-text">
+                        One of the best cinema experiences.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="movie-right">
+
+            <div class="action-box">
+                <button>♡ Like</button>
+                <button>★ Rate</button>
+                <button>➕ Watchlist</button>
+            </div>
+
+            <div class="stats-box">
+
+                <div class="stat">
+                    <h3 th:text="${movie.rate} ?: '0'"></h3>
+                    <p>Average Rating</p>
+                </div>
+
+                <div class="stat">
+                    <h3>12K</h3>
+                    <p>Reviews</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>

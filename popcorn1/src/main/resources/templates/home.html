@@ -1,0 +1,194 @@
+<div th:fragment="content">
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-gradient"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge">🔥 Featured Tonight</div>
+
+            <h1 class="hero-title">Project Hail Mary</h1>
+
+            <div class="hero-meta">
+                <span class="year">2026</span>
+                <span class="dot"></span>
+                <span>2h 36m</span>
+                <span class="dot"></span>
+                <span>Sci-Fi · Adventure</span>
+                <span class="dot"></span>
+                <span class="hero-rating">★ 8.3</span>
+            </div>
+
+            <p class="hero-desc">
+                A science teacher wakes up alone on a spaceship.
+                As his memory returns, he uncovers a mission to stop
+                a mysterious substance killing Earth's sun.
+            </p>
+
+            <div class="hero-btns">
+                <a href="/movie" class="btn-primary">▶ View Movie</a>
+                <a href="#" class="btn-ghost">＋ Add to Watchlist</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-bar">
+
+        <div class="stat-item">
+            <span class="stat-num">2.4M</span>
+            <span class="stat-label">Films Tracked</span>
+        </div>
+
+        <div class="stat-item">
+            <span class="stat-num">840K</span>
+            <span class="stat-label">Active Users</span>
+        </div>
+
+        <div class="stat-item">
+            <span class="stat-num">12M+</span>
+            <span class="stat-label">Reviews Written</span>
+        </div>
+
+        <div class="stat-item">
+            <span class="stat-num">500K</span>
+            <span class="stat-label">Watchlists Created</span>
+        </div>
+
+    </div>
+
+    <!-- TRENDING -->
+    <section class="section">
+
+        <h2>🔥 Trending Now</h2>
+
+        <div class="scroll-row">
+
+            <a th:each="movie : ${trending}"
+               th:href="@{'/movie/' + ${movie.id}}"
+               class="movie-card">
+
+                <span class="rank-badge"
+                      th:text="${movie.rank}">
+                </span>
+
+                <img class="movie-poster"
+                     th:src="@{'/images/' + ${movie.poster}}"
+                     th:alt="${movie.title}">
+
+                <div class="movie-info">
+
+
+
+                    <div class="movie-rating"
+                         th:text="${movie.rate}">
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- TOP RATED -->
+    <section class="section">
+
+        <h2>⭐ Top Rated All Time</h2>
+
+        <div class="scroll-row">
+
+            <a th:each="movie : ${topRated}"
+               th:href="@{'/movie/' + ${movie.id}}"
+               class="movie-card">
+
+                <span class="rank-badge"
+                      th:text="${movie.rank}">
+                </span>
+
+                <img class="movie-poster"
+                     th:src="@{'/images/' + ${movie.poster}}"
+                     th:alt="${movie.title}">
+
+                <div class="movie-info">
+
+
+
+                    <div class="movie-rating"
+                         th:text="${movie.rate}">
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- UPCOMING -->
+    <section class="section">
+
+        <h2>🎬 Upcoming Releases</h2>
+
+        <div class="scroll-row">
+
+            <a th:each="movie : ${upcoming}"
+               th:href="@{'/movie/' + ${movie.id}}"
+               class="movie-card">
+
+                <span class="rank-badge"
+                      th:text="${movie.rank}">
+                </span>
+
+                <img class="movie-poster"
+                     th:src="@{'/images/' + ${movie.poster}}"
+                     th:alt="${movie.title}">
+
+                <div class="movie-info">
+
+
+
+                    <div class="movie-rating"
+                         th:text="${movie.rate}">
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-section">
+
+        <div class="cta-text">
+            <h2>
+                Start Tracking.<br>
+                <em>Love Film More.</em>
+            </h2>
+
+            <p>
+                Join film lovers who use this platform
+                to discover movies and track their journey.
+            </p>
+        </div>
+
+        <div class="cta-actions">
+            <a href="/add" class="btn-primary" th:if="${session.user != null and session.user.role == 'admin'}">
+                🍿 Add Movies
+            </a>
+
+            <a href="/movie" class="btn-ghost">
+                Browse Movies
+            </a>
+        </div>
+
+
+    </div>
+
+</div>

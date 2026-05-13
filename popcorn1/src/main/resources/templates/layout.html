@@ -1,0 +1,82 @@
+<head>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/movie.css}">
+</head>
+<body>
+<nav>
+    <a href="/" class="logo"><span>🍿</span> Popcorn</a>
+
+    <ul class="nav-links">
+        <li><a href="/home" class="active">Home</a></li>
+        <li><a href="/movie">Movies</a></li>
+        <li><a href="/watchlist">Watchlist</a></li>
+        <li><a href="/community">Community</a></li>
+        <li><a href="/profile">Profile</a></li>
+
+
+    </ul>
+
+    <div class="nav-actions">
+        <div class="dropdown" th:if="${session.user != null}">
+            <a href="#" class="dropbtn" th:text="${session.user.name}"></a>
+
+            <div class="dropdown-content">
+                <a th:href="@{/logout}">Logout</a>
+            </div>
+        </div>
+        <div class="nav-avatar">HN</div>
+    </div>
+</nav>
+
+<div th:replace="${page} :: content"></div>
+
+<!--  FOOTER  -->
+<footer>
+    <div>
+        <div class="footer-logo">🍿 Popcorn</div>
+        <p class="footer-tagline">Your personal cinema diary for the modern movie lover.</p>
+    </div>
+
+    <div class="footer-links">
+        <h4>Discover</h4>
+        <ul>
+            <li><a href="#">Trending Movies</a></li>
+            <li><a href="#">Top Rated</a></li>
+            <li><a href="#">New Releases</a></li>
+            <li><a href="#">By Genre</a></li>
+        </ul>
+    </div>
+
+    <div class="footer-links">
+        <h4>Community</h4>
+        <ul>
+            <li><a href="#">Latest Reviews</a></li>
+            <li><a href="#">Film Lists</a></li>
+            <li><a href="#">Friends Activity</a></li>
+            <li><a href="#">Film Clubs</a></li>
+        </ul>
+    </div>
+
+    <div class="footer-links">
+        <h4>Account</h4>
+        <ul>
+            <li><a href="#">My Profile</a></li>
+            <li><a href="#">Watchlist</a></li>
+            <li><a href="#">Diary</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="footer-links">
+        <h4>Popcorn</h4>
+        <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">API Docs</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <p class="footer-copy">© 2025 Popcorn. Made with 🍿 for film lovers everywhere.</p>
+</footer>

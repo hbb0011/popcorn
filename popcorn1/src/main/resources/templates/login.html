@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+</head>
+
+<body>
+
+<div class="auth-page">
+    <div class="auth-card">
+
+        <h1>Welcome Back</h1>
+        <p>Log in to continue your movie journey.</p>
+
+        <form method="post" th:action="@{/login}" class="auth-form">
+
+            <label>Email</label>
+            <input type="email" name="email" required>
+
+            <label>Password</label>
+            <input type="password" name="password" required>
+
+            <p th:if="${error}" class="auth-error">
+                Invalid credentials
+            </p>
+
+            <button type="submit" class="auth-submit">Login</button>
+
+        </form>
+
+        <a th:href="@{/register}" class="auth-link">
+            Don't have an account? Create one
+        </a>
+
+    </div>
+</div>
+
+</body>
+</html>
