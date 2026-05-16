@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<section class="movie-hero">
+    <div class="hero-backdrop" th:style="|background-image:url('${movie.backdropUrl}')|"></div>
+    <div class="hero-overlay"></div>
+    <div class="movie-wrapper">
+        <div class="movie-left">
+            <div class="poster-box">
+                <img th:src="${movie.poster}" th:alt="${movie.title}">
+            </div>
+        </div>
+        <div class="movie-center">
+            <h1 class="movie-title" th:text="${movie.title}">Title</h1>
+            <div class="movie-meta">
+                <span th:text="${movie.year}">2020</span>
+                <span>•</span>
+                <span th:text="${movie.genre}">Genre</span>
+                <span>•</span>
+                <span>★ <span th:text="${movie.rate}">8</span></span>
+            </div>
+            <p class="movie-description" th:text="${movie.description}">Description</p>
+            <div class="movie-tags">
+                <p style="color: #aaa; font-size: 16px; margin-bottom: 5px;">Actors:</p>
+                <p class="movie-actors" th:text="${movie.actors}">Actors</p>
+            </div>
+            <div class="review-section">
+                <h2>Popular Reviews</h2>
+                <div class="review-card">
+                    <div class="review-user">🍿 Nour</div>
+                    <div class="review-text">This movie was visually insane. The cinematography felt unreal.</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-user">🎬 Alex</div>
+                    <div class="review-text">One of the best cinema experiences I've had recently.</div>
+                </div>
+            </div>
+        </div>
+        <div class="movie-right">
+            <div class="action-box">
+                <button type="button">♡ Like</button>
+                <button type="button">★ Rate</button>
+                <button type="button">➕ Watchlist</button>
+            </div>
+            <div class="stats-box">
+                <div class="stat">
+                    <h3>4.5</h3>
+                    <p>Average Rating</p>
+                </div>
+                <div class="stat">
+                    <h3>12K</h3>
+                    <p>Reviews</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

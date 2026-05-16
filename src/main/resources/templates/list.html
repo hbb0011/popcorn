@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<section class="section" style="padding-top: 5.5rem;">
+    <div class="scroll-row">
+        <div class="movie-card" th:each="movie : ${movies}">
+            <span class="rank-badge" th:text="${movie.rank}">1</span>
+            <img class="movie-poster" th:src="${movie.poster}" th:alt="${movie.title}">
+            <div class="movie-overlay"></div>
+            <div class="movie-overlay-hover">
+                <div class="play-btn"><a th:href="@{/movie/{id}(id=${movie.id})}">▶</a></div>
+            </div>
+            <div class="movie-info">
+                <div class="movie-title" th:text="${movie.title}">Title</div>
+                <div class="movie-rating">
+                    <span class="stars">
+                        <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star half">★</span>
+                    </span>
+                    <span th:text="${movie.rate}">8</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
