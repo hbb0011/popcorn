@@ -16,7 +16,7 @@
         <div class="movie-center">
             <h1 class="movie-title" th:text="${movie.title}">Title</h1>
             <div class="movie-meta">
-                <span th:text="${movie.year}">2020</span>
+                <span th:text="${movie.year}"></span>
                 <span>•</span>
                 <span th:text="${movie.genre}">Genre</span>
                 <span>•</span>
@@ -44,6 +44,10 @@
                 <button type="button">♡ Like</button>
                 <button type="button">★ Rate</button>
                 <button type="button">➕ Watchlist</button>
+                <a th:href="'https://www.playimdb.com/' + ${movie.title} + '/' + ${movie.imdb_id}" target="_blank">
+                    <button>Watch</button>
+                </a>
+
             </div>
             <div class="stats-box">
                 <div class="stat">
