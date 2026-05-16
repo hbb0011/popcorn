@@ -13,7 +13,7 @@ public class Movie {
     private String title;
     private String poster;
     private String genre;
-    private Integer year;
+    private String year;
     private String rate;
     private String actors;
     private String description;
@@ -62,11 +62,11 @@ public class Movie {
         this.genre = genre;
     }
 
-    public Integer getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(Integer year) {
+    public void setYear(String year) {
         this.year = year;
     }
 

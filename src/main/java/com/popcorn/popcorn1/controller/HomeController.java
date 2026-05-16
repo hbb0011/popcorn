@@ -24,10 +24,13 @@ public class HomeController {
         List<Movie> trending = movieRepository.findByType("trending", eight);
         List<Movie> topRated = movieRepository.findByType("top_rated", eight);
         List<Movie> upcoming = movieRepository.findByType("upcoming", eight);
+        List<Movie> series = movieRepository.findByType("series", eight);
 
         model.addAttribute("trending", trending);
         model.addAttribute("topRated", topRated);
         model.addAttribute("upcoming", upcoming);
+        model.addAttribute("series", series);
+
         model.addAttribute("activeNav", "home");
         return "home";
     }

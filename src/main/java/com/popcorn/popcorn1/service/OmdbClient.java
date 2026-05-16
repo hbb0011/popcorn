@@ -49,9 +49,9 @@ public class OmdbClient {
 
         // YEAR
         try {
-            m.setYear(Integer.parseInt(movie.get("Year").toString().substring(0,4)));
+            m.setYear(movie.get("Year").toString().substring(0,4));
         } catch (Exception e) {
-            m.setYear(0);
+            m.setYear("0");
         }
 
         // RATING

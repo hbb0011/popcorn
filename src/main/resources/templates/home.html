@@ -132,14 +132,40 @@
         </div>
     </div>
 </section>
-
+<section class="section" style="padding-top: 0;">
+    <div class="section-header">
+        <h2 class="section-title"><span class="icon">⭐</span> top series</h2>
+        <a href="#" class="section-see-all">See All →</a>
+    </div>
+    <hr>
+    <br>
+    <div class="scroll-row">
+        <div class="movie-card" th:each="movie : ${series}">
+            <span class="rank-badge" th:text="${movie.rank}">1</span>
+            <img class="movie-poster" th:src="${movie.poster}" th:alt="${movie.title}">
+            <div class="movie-overlay"></div>
+            <div class="movie-overlay-hover">
+                <div class="play-btn"><a th:href="@{/movie/{id}(id=${movie.id})}">▶</a></div>
+            </div>
+            <div class="movie-info">
+                <div class="movie-title" th:text="${movie.title}">Title</div>
+                <div class="movie-rating">
+                    <span class="stars">
+                        <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star half">★</span>
+                    </span>
+                    <span th:text="${movie.rate}">8</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <div class="cta-section">
     <div class="cta-text">
         <h2>Start Tracking.<br><em>Love Film More.</em></h2>
         <p>Join over 840,000 film lovers who use Popcorn to discover hidden gems, track their cinema journey, and connect with a community that actually cares about movies.</p>
     </div>
     <div class="cta-actions">
-        <a th:href="@{/register}" class="btn-primary" style="padding: 0.9rem 2rem; font-size: 0.95rem;">🍿 Create Free Account</a>
+        <a th:href="@{/}" class="btn-primary" style="padding: 0.9rem 2rem; font-size: 0.95rem;">🍿 get premium</a>
         <a th:href="@{/list}" class="btn-ghost" style="padding: 0.9rem 2rem; font-size: 0.95rem;">Browse Movies</a>
     </div>
 </div>
